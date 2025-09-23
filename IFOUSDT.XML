@@ -1,0 +1,2934 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE rdf:RDJ [
+<!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+<!ENTITY rdfs "http://www.w3.org/2000/01/rdf−schema#" >
+<!ENTITY rdf "http://www.w3.org/1999/02/22−rdf−syntax−ns#" >
+<!ENTITY ontologies "http://www.semanticweb.org/neji/ontologies/2021/2/" >
+]>
+
+<rdf:RDJ xmlns="http://www.w3.org/2002/07/owl#" xml:base="http://www.w3.org/2002/07/owl" xmlns:rdfs="http://www.w3.org/2000/01/rdf−schema#" xmlns:ontologies="http://www.semanticweb.org/neji/ontologies/2021/2/" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:rdf="http://www.w3.org/1999/02/22−rdf−syntax−ns#">
+<Ontology rdf:about="http://www.semanticweb.org/neji/ontologies/2021/"/>
+
+<!−−
+///////////////////////////////////////////////////////////////////////////////////////
+//
+// Object Properties
+//
+///////////////////////////////////////////////////////////////////////////////////////
+−−>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/after −−>
+
+<ObjectProperty rdf:about="http://www.semanticweb.org/neji/ontologies/2021/after">
+<rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
+<rdfs:comment>Gives directionality to time. If a temporal entity T1 is after another temporal entity T2, then the beginning of T1 is after the end of T2.</rdfs:comment>
+<rdfs:range rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/TEn"/>
+<rdfs:domain rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/TEn"/>
+<inverseOf rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/before"/>
+<propertyDisjointWith rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/before"/>
+</ObjectProperty>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/before −−>
+
+<ObjectProperty rdf:about="http://www.semanticweb.org/neji/ontologies/2021/before">
+<rdf:type rdf:resource="&owl;InverseJunctionalProperty"/>
+ 
+<rdfs:comment>Gives directionality to time. If a temporal entity T1 is before another temporal entity T2, then the end of T1 is before the beginning of T2. Thus, before can be considered to be basic to instants and derived for intervals. </rdfs:comment>
+<rdfs:domain rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/TEn"/>
+<rdfs:range rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/TEn"/>
+<rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+</ObjectProperty>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/day −−>
+
+<ObjectProperty rdf:about="http://www.semanticweb.org/neji/ontologies/2021/day">
+<rdfs:comment>Day position in a calendar−clock system. The range of this property is not specified, so can be replaced by any specific representation of a calendar day from any calendar. </rdfs:comment>
+<rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/week"/>
+</ObjectProperty>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/hasBeginning −−>
+
+<ObjectProperty rdf:about="http://www.semanticweb.org/neji/ontologies/2021/hasBeginning">
+<rdf:type rdf:resource="&owl;TransitiveProperty"/>
+<rdfs:comment>Beginning of a temporal entity. </rdfs:comment>
+<rdfs:domain rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/TEn"/>
+<rdfs:range rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/TI"/>
+</ObjectProperty>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/hasDuration −−>
+
+<ObjectProperty rdf:about="http://www.semanticweb.org/neji/ontologies/2021/hasDuration">
+<rdfs:comment>Duration of a temporal entity, expressed as a scaled value or nominal value</rdfs:comment>
+<rdfs:range rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/DUR"/>
+<rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/hasTemporalDuration"/>
+</ObjectProperty>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/hasEnd −−>
+
+<ObjectProperty rdf:about="http://www.semanticweb.org/neji/ontologies/2021/hasEnd">
+<rdf:type rdf:resource="&owl;TransitiveProperty"/>
+<rdfs:comment>End of a temporal entity. </rdfs:comment>
+<rdfs:domain rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/TEn"/>
+<rdfs:range rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/TI"/>
+</ObjectProperty>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/hasName −−>
+
+<ObjectProperty rdf:about="http://www.semanticweb.org/neji/ontologies/2021/hasName">
+<rdf:type rdf:resource="&owl;JunctionalProperty"/>
+</ObjectProperty>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/hasTRS −−>
+
+<ObjectProperty rdf:about="http://www.semanticweb.org/neji/ontologies/2021/hasTRS">
+<rdf:type rdf:resource="&owl;JunctionalProperty"/>
+<rdfs:comment>The temporal reference system used by a temporal position or extent description.
+</rdfs:comment>
+<rdfs:domain rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/TP"/>
+<rdfs:range rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/TRS"/>
+ 
+</ObjectProperty>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/hasTemporalDuration −−>
+
+<ObjectProperty rdf:about="http://www.semanticweb.org/neji/ontologies/2021/hasTemporalDuration">
+<rdf:type rdf:resource="&owl;JunctionalProperty"/>
+<rdfs:comment>Duration of a temporal entity</rdfs:comment>
+<rdfs:range rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/TD"/>
+<rdfs:domain rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/TEn"/>
+</ObjectProperty>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/hasTime −−>
+
+<ObjectProperty rdf:about="http://www.semanticweb.org/neji/ontologies/2021/hasTime">
+<rdf:type rdf:resource="&owl;JunctionalProperty"/>
+<rdfs:comment>Supports the association of a temporal entity (instant or interval) to any thing.</rdfs:comment>
+<rdfs:range rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/TEn"/>
+</ObjectProperty>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/hour −−>
+
+<ObjectProperty rdf:about="http://www.semanticweb.org/neji/ontologies/2021/hour">
+<rdfs:comment>Hour position in a calendar−clock system </rdfs:comment>
+<rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/day"/>
+</ObjectProperty>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/inside −−>
+
+<ObjectProperty rdf:about="http://www.semanticweb.org/neji/ontologies/2021/inside">
+<rdfs:comment>An instant that falls inside the interval. It is not intended to include beginnings and ends of intervals. </rdfs:comment>
+<rdfs:domain rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/PI"/>
+<rdfs:range rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/TI"/>
+<rdfs:domain rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/TiIn"/>
+</ObjectProperty>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/minute −−>
+
+<ObjectProperty rdf:about="http://www.semanticweb.org/neji/ontologies/2021/minute">
+<rdfs:comment>Minute position in a calendar−clock system </rdfs:comment>
+<rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/hour"/>
+</ObjectProperty>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/month −−>
+
+<ObjectProperty rdf:about="http://www.semanticweb.org/neji/ontologies/2021/month">
+<rdfs:comment>Month position in a calendar−clock system. The range of this property is not specified, so can be replaced by any specific representation of a calendar month from any calendar. </rdfs:comment>
+<rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/year"/>
+</ObjectProperty>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/nominalPosition −−>
+
+<ObjectProperty rdf:about="http://www.semanticweb.org/neji/ontologies/2021/nominalPosition">
+<rdf:type rdf:resource="&owl;JunctionalProperty"/>
+ 
+<rdfs:comment>The (nominal) value indicating temporal position in an ordinal reference system
+</rdfs:comment>
+<rdfs:domain rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/TPo"/>
+</ObjectProperty>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/numericDuration −−>
+
+<ObjectProperty rdf:about="http://www.semanticweb.org/neji/ontologies/2021/numericDuration">
+<rdf:type rdf:resource="&owl;JunctionalProperty"/>
+<rdfs:comment>Value of a temporal extent expressed as a number scaled by a temporal unit</rdfs:comment>
+<rdfs:domain rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/DUR"/>
+</ObjectProperty>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/numericPosition −−>
+
+<ObjectProperty rdf:about="http://www.semanticweb.org/neji/ontologies/2021/numericPosition">
+<rdf:type rdf:resource="&owl;JunctionalProperty"/>
+<rdfs:comment>The (numeric) value indicating position within a	temporal coordinate system</rdfs:comment>
+<rdfs:domain rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/TPo"/>
+<rdfs:subPropertyOf rdf:resource="&owl;topObjectProperty"/>
+</ObjectProperty>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/second −−>
+
+<ObjectProperty rdf:about="http://www.semanticweb.org/neji/ontologies/2021/second">
+<rdfs:comment>Second position in a calendar−clock system. </rdfs:comment>
+<rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/minute"/>
+</ObjectProperty>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/unitType −−>
+
+<ObjectProperty rdf:about="http://www.semanticweb.org/neji/ontologies/2021/unitType">
+<rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/numericDuration"/>
+</ObjectProperty>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/version −−>
+
+<ObjectProperty rdf:about="http://www.semanticweb.org/neji/ontologies/2021/version"/>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/week −−>
+
+<ObjectProperty rdf:about="http://www.semanticweb.org/neji/ontologies/2021/week">
+<rdfs:comment>Week number within the year. </rdfs:comment>
+<rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/month"/>
+</ObjectProperty>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/year −−>
+
+<ObjectProperty rdf:about="http://www.semanticweb.org/neji/ontologies/2021/year">
+<rdfs:comment>Year position in a calendar−clock system. The range of this property is not specified, so can be replaced by any specific representation of a calendar year from any calendar. </rdfs:comment>
+</ObjectProperty>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/functions −−>
+ 
+<ObjectProperty rdf:about="&ontologies;functions">
+<rdfs:domain rdf:resource="&ontologies;OP"/>
+<rdfs:range rdf:resource="&ontologies;OP"/>
+</ObjectProperty>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/isGeneratedBy −−>
+
+<ObjectProperty rdf:about="&ontologies;isGeneratedBy">
+<rdf:type rdf:resource="&owl;AsymmetricProperty"/>
+<rdfs:domain rdf:resource="&ontologies;O"/>
+<rdfs:range rdf:resource="&ontologies;OP"/>
+</ObjectProperty>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/isPartOf −−>
+
+<ObjectProperty rdf:about="&ontologies;isPartOf">
+<rdf:type rdf:resource="&owl;TransitiveProperty"/>
+<rdfs:domain rdf:resource="&ontologies;I"/>
+<rdfs:range rdf:resource="&ontologies;O"/>
+</ObjectProperty>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/isresultof −−>
+
+<ObjectProperty rdf:about="&ontologies;isresultof">
+<rdfs:subPropertyOf rdf:resource="&ontologies;isGeneratedBy"/>
+</ObjectProperty>
+
+
+
+<!−−
+///////////////////////////////////////////////////////////////////////////////////////
+//
+// Data properties
+//
+///////////////////////////////////////////////////////////////////////////////////////
+−−>
+
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/generalDay −−>
+
+<DatatypeProperty rdf:about="http://www.semanticweb.org/neji/ontologies/2021/generalDay">
+<rdf:type rdf:resource="&owl;JunctionalProperty"/>
+<rdfs:comment rdf:datatype="&xsd;string">Day of month − formulated as a text string with a pattern constraint. Values up to 99 are permitted, in order to support calendars with more than 31 days in a month. Note that the value−space is not defined, so a generic OWL2 processor cannot compute ordering relationships of values of this type. </rdfs:comment>
+<rdfs:domain rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/Timing"/>
+<rdfs:range rdf:resource="&rdfs;Literal"/>
+</DatatypeProperty>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/generalMonth −−>
+
+<DatatypeProperty rdf:about="http://www.semanticweb.org/neji/ontologies/2021/generalMonth">
+<rdf:type rdf:resource="&owl;JunctionalProperty"/>
+<rdfs:comment rdf:datatype="&xsd;string">Month of year − formulated as a text string with a pattern constraint. Values up to 20 are permitted, in order to support calendars with more than 12 months in the year.
+ 
+Note that the value−space is not defined, so a generic OWL2 processor cannot compute ordering relationships of values of this type. </rdfs:comment>
+<rdfs:domain rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/Timing"/>
+<rdfs:range rdf:resource="&rdfs;Literal"/>
+</DatatypeProperty>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/generalYear −−>
+
+<DatatypeProperty rdf:about="http://www.semanticweb.org/neji/ontologies/2021/generalYear">
+<rdf:type rdf:resource="&owl;JunctionalProperty"/>
+<rdfs:comment rdf:datatype="&xsd;string">Year number − formulated as a text string with a pattern constraint. Values from the Gregorian calendar. Note that the value−space is not defined, so a generic OWL2 processor cannot compute ordering relationships of values of this type. </rdfs:comment>
+<rdfs:domain rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/Timing"/>
+<rdfs:range rdf:resource="&rdfs;Literal"/>
+</DatatypeProperty>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/feature −−>
+
+<DatatypeProperty rdf:about="&ontologies;feature">
+<rdf:type rdf:resource="&owl;JunctionalProperty"/>
+<rdfs:domain rdf:resource="&ontologies;SDT"/>
+<rdfs:range rdf:resource="&rdfs;Literal"/>
+</DatatypeProperty>
+
+
+
+<!−−
+///////////////////////////////////////////////////////////////////////////////////////
+//
+// Classes
+//
+///////////////////////////////////////////////////////////////////////////////////////
+−−>
+
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/CA −−>
+
+<Class rdf:about="http://www.semanticweb.org/neji/ontologies/2021/CA">
+<rdfs:subClassOf rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/TE"/>
+<rdfs:comment>Calendar (CA)</rdfs:comment>
+</Class>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/DTI −−>
+
+<Class rdf:about="http://www.semanticweb.org/neji/ontologies/2021/DTI">
+<rdfs:subClassOf rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/PI"/>
+<rdfs:comment>Date−time interval (DTI): enables compact representation of an interval corresponding to a single element in a date−time description (i.e. a specified year, month, week, day, hour, minute, second).
+</rdfs:comment>
+</Class>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/DUR −−>
+
+<Class rdf:about="http://www.semanticweb.org/neji/ontologies/2021/DUR">
+<rdfs:subClassOf rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/TD"/>
+<rdfs:subClassOf>
+ 
+<Restriction>
+<onProperty rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/unitType"/>
+<onClass rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/DUR"/>
+<qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</qualifiedCardinality>
+</Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<Restriction>
+<onProperty rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/numericDuration"/>
+<onClass rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/DUR"/>
+<qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</qualifiedCardinality>
+</Restriction>
+</rdfs:subClassOf>
+<rdfs:comment>Duration (DUR) of a temporal extent expressed as a decimal number scaled by a temporal unit.</rdfs:comment>
+</Class>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/DoW −−>
+
+<Class rdf:about="http://www.semanticweb.org/neji/ontologies/2021/DoW">
+<rdfs:subClassOf rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/CA"/>
+<rdfs:comment>Day of week (DoW): Seven individual members of DayOfWeek are included in the ontology, corresponding to the seven days used in the Gregorian calendar, and using the English names :Sunday, :Monday,
+:Tuesday, :Wednesday, :Thursday, :Jriday, :Saturday.</rdfs:comment>
+</Class>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/MoY −−>
+
+<Class rdf:about="http://www.semanticweb.org/neji/ontologies/2021/MoY">
+<rdfs:subClassOf rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/CA"/>
+<rdfs:subClassOf>
+<Restriction>
+<onProperty rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/unitType"/>
+<hasValue rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/unitMonth"/>
+</Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<Restriction>
+<onProperty rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/month"/>
+<onClass rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/MoY"/>
+<qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</qualifiedCardinality>
+</Restriction>
+</rdfs:subClassOf>
+<rdfs:comment>Month of year (MoY): Twelve individual members of :MonthOfYear are provided in a separate namespace, corresponding to the twelve months used in the Gregorian calendar January, Jebruary, March, April, May, June, July, August, September, October, November, and December. </rdfs:comment>
+</Class>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/PI −−>
+
+<Class rdf:about="http://www.semanticweb.org/neji/ontologies/2021/PI">
+<rdfs:subClassOf rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/TiIn"/>
+<disjointWith rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/TI"/>
+<rdfs:comment>Proper interval (PI): A temporal entity with non−zero extent or duration, i.e. for which the value of the beginning and end are different.</rdfs:comment>
+</Class>
+ 
+<!−− http://www.semanticweb.org/neji/ontologies/2021/PP −−>
+
+<Class rdf:about="http://www.semanticweb.org/neji/ontologies/2021/PP">
+<rdfs:subClassOf rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/Timing"/>
+<rdfs:comment>ProgramParts (PP)</rdfs:comment>
+</Class>
+
+
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/TD −−>
+
+<Class rdf:about="http://www.semanticweb.org/neji/ontologies/2021/TD">
+<rdfs:subClassOf rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/TE"/>
+<rdfs:comment>Temporal duration (TD): Time extent; duration of a time interval separate from its particular start position.</rdfs:comment>
+</Class>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/TE −−>
+
+<Class rdf:about="http://www.semanticweb.org/neji/ontologies/2021/TE">
+<rdfs:subClassOf rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/Timing"/>
+<rdfs:comment>Temporal Evolution (TE)</rdfs:comment>
+</Class>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/TEn −−>
+
+<Class rdf:about="http://www.semanticweb.org/neji/ontologies/2021/TEn">
+<rdfs:subClassOf rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/TE"/>
+<rdfs:comment>Temporal Entity (TEn):</rdfs:comment>
+<disjointUnionOf rdf:parseType="Collection">
+<rdf:Description rdf:about="http://www.semanticweb.org/neji/ontologies/2021/TI"/>
+<rdf:Description rdf:about="http://www.semanticweb.org/neji/ontologies/2021/TiIn"/>
+</disjointUnionOf>
+</Class>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/TI −−>
+
+<Class rdf:about="http://www.semanticweb.org/neji/ontologies/2021/TI">
+<rdfs:subClassOf rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/TEn"/>
+<rdfs:comment>Time instant (TI):A temporal entity with zero extent or duration.</rdfs:comment>
+</Class>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/TP −−>
+
+<Class rdf:about="http://www.semanticweb.org/neji/ontologies/2021/TP">
+<rdfs:subClassOf rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/TE"/>
+<rdfs:subClassOf>
+<Restriction>
+<onProperty rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/hasTRS"/>
+<onClass rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/TP"/>
+<qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</qualifiedCardinality>
+</Restriction>
+</rdfs:subClassOf>
+<rdfs:comment>Temporal position (TP): A position on a time−line.</rdfs:comment>
+</Class>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/TPo −−>
+ 
+<Class rdf:about="http://www.semanticweb.org/neji/ontologies/2021/TPo">
+<rdfs:subClassOf rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/TP"/>
+<rdfs:subClassOf>
+<Restriction>
+<onProperty rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/hasTRS"/>
+<onClass rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/TPo"/>
+<qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</qualifiedCardinality>
+</Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<Class>
+<unionOf rdf:parseType="Collection">
+<Restriction>
+<onProperty rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/nominalPosition"/>
+<onClass rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/TPo"/>
+<qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</qualifiedCardinality>
+</Restriction>
+<Restriction>
+<onProperty rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/numericPosition"/>
+<onClass rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/TPo"/>
+<qualifiedCardinality rdf:datatype="&xsd;nonNegativeInteger">1</qualifiedCardinality>
+</Restriction>
+</unionOf>
+</Class>
+</rdfs:subClassOf>
+<rdfs:comment>Time Position (TPo): A temporal position described using either a (nominal) value from an ordinal reference system, or a (numeric) value in a temporal coordinate system. </rdfs:comment>
+</Class>
+
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/TRS −−>
+
+<Class rdf:about="http://www.semanticweb.org/neji/ontologies/2021/TRS">
+<rdfs:subClassOf rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/TE"/>
+<rdfs:comment>Temporal Reference System (TRS): A temporal reference system, such as a temporal coordinate reference system (with an origin, direction, and scale), a calendar−clock combination, or a (possibly hierarchical) ordinal system. </rdfs:comment>
+</Class>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/TU −−>
+
+<Class rdf:about="http://www.semanticweb.org/neji/ontologies/2021/TU">
+<rdfs:subClassOf rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/TD"/>
+<rdfs:comment>Temporal unit (TU): A standard duration, which provides the scale factor for a time extent, or the granularity or precision for a time position. </rdfs:comment>
+</Class>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/TZ −−>
+
+<Class rdf:about="http://www.semanticweb.org/neji/ontologies/2021/TZ">
+<rdfs:subClassOf rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/TE"/>
+<rdfs:comment>Time−Zone (TZ): A Time Zone specifies the amount by which the local time is offset from UTC. A time zone is usually denoted geographically (e.g. Australian Eastern Daylight Time), with a constant value in a
+ 
+given region. The region where it applies and the offset from UTC are specified by a locally recognised governing authority. </rdfs:comment>
+</Class>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/TiIn −−>
+
+<Class rdf:about="http://www.semanticweb.org/neji/ontologies/2021/TiIn">
+<rdfs:subClassOf rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/TEn"/>
+<rdfs:comment>Time interval (TiIn): A temporal entity with an extent or duration.</rdfs:comment>
+</Class>
+<!−− http://www.semanticweb.org/neji/ontologies/2021/Timing −−>
+
+<Class rdf:about="http://www.semanticweb.org/neji/ontologies/2021/Timing">
+<rdfs:subClassOf rdf:resource="&ontologies;DA"/>
+<rdfs:comment>Timing (DA7) − reporting actual Central Processing Unit (CPU) times associated with parts of a program.</rdfs:comment>
+</Class>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/Tracing −−>
+
+<Class rdf:about="http://www.semanticweb.org/neji/ontologies/2021/Tracing">
+<rdfs:subClassOf rdf:resource="&ontologies;DA"/>
+<rdfs:comment>Tracing (DA8) − tracking the historical record of execution of a program. Tools that produce trace histories or allow the setting of breakpoints for tracking down errors have this feature.</rdfs:comment>
+</Class>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/YE −−>
+
+<Class rdf:about="http://www.semanticweb.org/neji/ontologies/2021/YE">
+<rdfs:subClassOf rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/CA"/>
+<rdfs:comment>Year (YE)</rdfs:comment>
+</Class>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/CI −−>
+
+<Class rdf:about="&ontologies;CI">
+<rdfs:subClassOf rdf:resource="&ontologies;I"/>
+<rdfs:comment>Control Input (Key ; CI) . Control inputs specify the type of operation and the detail associated with an operation. They describe any separable commands that are entered as part of the input stream.</rdfs:comment>
+</Class>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/DA −−>
+
+<Class rdf:about="&ontologies;DA">
+<rdfs:subClassOf rdf:resource="&ontologies;OP"/>
+<rdfs:comment>Dynamic Analysis (Key ; DA) . Dynamic analysis features specify operations that are determined during or after execution takes place. Dynamic analysis features differ from those classified as static by virtue of the fact that they require some form of symbolic or machine execution. They describe the techniques used by the tool to derive meaningful information about a program&apos;s execution behavior. There are nine dynamic analysis features.
+</rdfs:comment>
+</Class>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/I −−>
+
+<Class rdf:about="&ontologies;I">
+ 
+<rdfs:subClassOf rdf:resource="&ontologies;SDT"/>
+<disjointWith rdf:resource="&ontologies;OP"/>
+<rdfs:comment>Input (I) features are based on the forms of input which can be provided to a tool. These features fall into two classes, one which is based on how the tool should operate (control input (CI)) and the other based on what the tool should operate on (Main Input (MI)) . Using a compiler as an example,. The subject (Main Input) is the code that will be compiled and the control input is the set of commands which specify compiler options (optimize, debug, cross reference, etc.).</rdfs:comment>
+</Class>
+
+
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/MI −−>
+
+<Class rdf:about="&ontologies;MI">
+<rdfs:subClassOf rdf:resource="&ontologies;I"/>
+<rdfs:comment>Main Input (MI) = is usually the required input to a tool. It is the input which is subjected to the main functions performed by a tool. The four types of subjects are data, code, VHLL (very high level language)
+, and text.</rdfs:comment>
+<rdfs:comment>Some tools, such as editors, operate on any if the four of these input forms (code, text, data, VHLL). In cases such as this, the input form is chosen from the viewpoint of the tool. Since editors view the input form as text, then text would be the correct choice for this tool.
+</rdfs:comment>
+</Class>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/MO −−>
+
+<Class rdf:about="&ontologies;MO">
+<rdfs:subClassOf rdf:resource="&ontologies;O"/>
+<rdfs:comment>Machine Output (Key; MO). Machine output features handle the interface from the tool to a target machine. They describe what the machine expects to see as output from the tool. There are six machine output features.</rdfs:comment>
+</Class>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/O −−>
+
+<Class rdf:about="&ontologies;O">
+<rdfs:subClassOf rdf:resource="&ontologies;SDT"/>
+<disjointWith rdf:resource="&ontologies;OP"/>
+<rdfs:comment>Output (O), features provide the link from the tool to the user. They describe what type of output the tool produces for both the human user and the target machine (where applicable) . Again using a compiler as an example, the user output would be diagnostics and possibly listings and tables (cross reference) , and the machine output would be object code or possibly intermediate code.
+</rdfs:comment>
+</Class>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/OP −−>
+
+<Class rdf:about="&ontologies;OP">
+<rdfs:subClassOf rdf:resource="&ontologies;SDT"/>
+<rdfs:comment>Operation (OP). The features for this class describe the processing functions performed by a tool and fall into three classes: transformation, static analysis, and dynamic analysis. Again using a compiler as an example, the transformation features would be translation and possibly optimization, the static analysis features would be error checking and possibly cross reference, and a dynamic analysis feature may be tracing.</rdfs:comment>
+</Class>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/SA −−>
+ 
+<Class rdf:about="&ontologies;SA">
+<rdfs:subClassOf rdf:resource="&ontologies;OP"/>
+<rdfs:comment>Static Analysis (Key : SA). Static analysis features specify operations on the subject without regard to the executability of the subject. They describe the manner in which the subject is analyzed. There are nineteen static analysis features.
+</rdfs:comment>
+</Class>
+
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/SDT −−>
+
+<Class rdf:about="&ontologies;SDT">
+<rdfs:comment>SDT: Software Development Tool meaning Software that assists in the creation of new software in a dynamic environment. </rdfs:comment>
+</Class>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/T −−>
+
+<Class rdf:about="&ontologies;T">
+<rdfs:subClassOf rdf:resource="&ontologies;OP"/>
+<rdfs:comment>Transformation (Key ; T) . Transformation features describe how the subject is manipulated to accommodate the user&apos;s needs. They describe what transformations take place as the input to the tool is processed. There are six transformation features. </rdfs:comment>
+</Class>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/UO −−>
+
+<Class rdf:about="&ontologies;UO">
+<rdfs:subClassOf rdf:resource="&ontologies;O"/>
+<rdfs:comment>User Output (Key; UO) . User output features handle the interface from the tool to the human user. They describe the types of information that the tool provides for the user and the form in which this output is presented. There are six user output features.</rdfs:comment>
+</Class>
+
+
+
+<!−−
+///////////////////////////////////////////////////////////////////////////////////////
+//
+// Individuals
+//
+///////////////////////////////////////////////////////////////////////////////////////
+−−>
+
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/April −−>
+
+<NamedIndividual rdf:about="http://www.semanticweb.org/neji/ontologies/2021/April">
+<rdf:type rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/MoY"/>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/August −−>
+
+<NamedIndividual rdf:about="http://www.semanticweb.org/neji/ontologies/2021/August">
+<rdf:type rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/MoY"/>
+</NamedIndividual>
+ 
+<!−− http://www.semanticweb.org/neji/ontologies/2021/DA1 −−>
+
+<NamedIndividual rdf:about="http://www.semanticweb.org/neji/ontologies/2021/DA1">
+<rdf:type rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/PP"/>
+<rdfs:comment>Assertion Checking (DA1) − checking of user−embedded statements that assert relationships between elements of a program. An assertion is a logical expression that specifies a condition or relation among the program variables. Checking may be performed with symbolic or run−time data. Tools that test the validity of assertions as the program is executing or tools that perform formal verification of assertions have this feature.</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/December −−>
+
+<NamedIndividual rdf:about="http://www.semanticweb.org/neji/ontologies/2021/December">
+<rdf:type rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/MoY"/>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/Jebruary −−>
+
+<NamedIndividual rdf:about="http://www.semanticweb.org/neji/ontologies/2021/Jebruary">
+<rdf:type rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/MoY"/>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/Jriday −−>
+
+<NamedIndividual rdf:about="http://www.semanticweb.org/neji/ontologies/2021/Jriday">
+<rdf:type rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/DoW"/>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/January −−>
+
+<NamedIndividual rdf:about="http://www.semanticweb.org/neji/ontologies/2021/January">
+<rdf:type rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/MoY"/>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/July −−>
+
+<NamedIndividual rdf:about="http://www.semanticweb.org/neji/ontologies/2021/July">
+<rdf:type rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/MoY"/>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/June −−>
+
+<NamedIndividual rdf:about="http://www.semanticweb.org/neji/ontologies/2021/June">
+<rdf:type rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/MoY"/>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/March −−>
+
+<NamedIndividual rdf:about="http://www.semanticweb.org/neji/ontologies/2021/March">
+<rdf:type rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/MoY"/>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/May −−>
+
+<NamedIndividual rdf:about="http://www.semanticweb.org/neji/ontologies/2021/May">
+ 
+<rdf:type rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/MoY"/>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/Monday −−>
+
+<NamedIndividual rdf:about="http://www.semanticweb.org/neji/ontologies/2021/Monday">
+<rdf:type rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/DoW"/>
+</NamedIndividual>
+
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/November −−>
+
+<NamedIndividual rdf:about="http://www.semanticweb.org/neji/ontologies/2021/November">
+<rdf:type rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/MoY"/>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/October −−>
+
+<NamedIndividual rdf:about="http://www.semanticweb.org/neji/ontologies/2021/October">
+<rdf:type rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/MoY"/>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/Saturday −−>
+
+<NamedIndividual rdf:about="http://www.semanticweb.org/neji/ontologies/2021/Saturday">
+<rdf:type rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/DoW"/>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/September −−>
+
+<NamedIndividual rdf:about="http://www.semanticweb.org/neji/ontologies/2021/September">
+<rdf:type rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/MoY"/>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/Sunday −−>
+
+<NamedIndividual rdf:about="http://www.semanticweb.org/neji/ontologies/2021/Sunday">
+<rdf:type rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/DoW"/>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/Thursday −−>
+
+<NamedIndividual rdf:about="http://www.semanticweb.org/neji/ontologies/2021/Thursday">
+<rdf:type rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/DoW"/>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/Tuesday −−>
+
+<NamedIndividual rdf:about="http://www.semanticweb.org/neji/ontologies/2021/Tuesday">
+<rdf:type rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/DoW"/>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/Wednesday −−>
+
+<NamedIndividual rdf:about="http://www.semanticweb.org/neji/ontologies/2021/Wednesday">
+<rdf:type rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/DoW"/>
+</NamedIndividual>
+ 
+<!−− http://www.semanticweb.org/neji/ontologies/2021/unitDay −−>
+
+<NamedIndividual rdf:about="http://www.semanticweb.org/neji/ontologies/2021/unitDay">
+<rdf:type rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/TU"/>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/unitHour −−>
+
+<NamedIndividual rdf:about="http://www.semanticweb.org/neji/ontologies/2021/unitHour">
+<rdf:type rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/TU"/>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/unitMinute −−>
+
+<NamedIndividual rdf:about="http://www.semanticweb.org/neji/ontologies/2021/unitMinute">
+<rdf:type rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/TU"/>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/unitMonth −−>
+
+<NamedIndividual rdf:about="http://www.semanticweb.org/neji/ontologies/2021/unitMonth">
+<rdf:type rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/TU"/>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/unitSecond −−>
+
+<NamedIndividual rdf:about="http://www.semanticweb.org/neji/ontologies/2021/unitSecond">
+<rdf:type rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/TU"/>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/unitWeek −−>
+
+<NamedIndividual rdf:about="http://www.semanticweb.org/neji/ontologies/2021/unitWeek">
+<rdf:type rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/TU"/>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/unitYear −−>
+
+<NamedIndividual rdf:about="http://www.semanticweb.org/neji/ontologies/2021/unitYear">
+<rdf:type rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/TU"/>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/A10 −−>
+
+<NamedIndividual rdf:about="&ontologies;A10">
+<rdf:type rdf:resource="&ontologies;SA"/>
+<rdfs:comment>Interface Analysis (SA10) − checking the interfaces between program elements for consistency and adherence to predefined rules and/or axioms. A tool that examines interfaces between modules to determine if axiomatic rules for data exchange were obeyed has this feature.</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/C −−>
+
+<NamedIndividual rdf:about="&ontologies;C">
+<rdf:type rdf:resource="&ontologies;CI"/>
+ 
+<rdfs:comment>Commands (C) − The control input to the tool consists primarily of procedural operators, each capable of invoking a system function to be executed. A directive invoking a series of diagnostic commands at selected breakpoints is an example. A tool that performs a single function will not have this feature but will most likely have the next.
+</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/DA2 −−>
+
+<NamedIndividual rdf:about="&ontologies;DA2">
+<rdf:type rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/PP"/>
+<rdfs:comment>Constraint Evaluation (DA2) − generating and/or solving path input constraints for determining test input. Tools that assist the generation of or automatically generate test data have this feature.</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/DA3 −−>
+
+<NamedIndividual rdf:about="&ontologies;DA3">
+<rdf:type rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/PP"/>
+<rdfs:comment>Coverage Analysis (DA3) − determining and assessing measures associated with the invocation of program structural elements to determine the adequacy of a test run. Coverage analysis is useful when attempting to execute each statement, branch, path, or iterative structure in a program. Tools that capture this data and provide reports summarizing relevant information have this feature.
+</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/DA4 −−>
+
+<NamedIndividual rdf:about="&ontologies;DA4">
+<rdf:type rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/PP"/>
+<rdfs:comment>Resource Utilization (DA4) − analysis of resource utilization associated with system hardware or software. A tool that provides detailed run−time statistics on core usage, disk usage, queue lengths, etc. is an example of a tool with this feature.
+</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/DA5 −−>
+
+<NamedIndividual rdf:about="&ontologies;DA5">
+<rdf:type rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/PP"/>
+<rdfs:comment>Simulation (DA5) − representing certain features of the behavior of a physical or abstract system by means of operations performed by a computer. A tool that simulates the environment under which operational programs will run has this feature.</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/DA6 −−>
+
+<NamedIndividual rdf:about="&ontologies;DA6">
+<rdf:type rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/PP"/>
+<rdfs:comment>Symbolic Execution (DA6) − reconstructing logic and computations along a program path by executing the path with symbolic rather than actual values of data.</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/DA9 −−>
+
+<NamedIndividual rdf:about="&ontologies;DA9">
+ 
+<rdf:type rdf:resource="http://www.semanticweb.org/neji/ontologies/2021/PP"/>
+<rdfs:comment>Tuning (DA9) − determining what parts of a program are being executed the most. A tool that instruments a program to obtain execution frequencies of statements is a tool with this feature.</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/MI1 −−>
+
+<NamedIndividual rdf:about="&ontologies;MI1">
+<rdf:type rdf:resource="&ontologies;MI"/>
+<rdfs:comment>Text (MI1)− The input to the tool is presented in a natural language form. Certain types of tools are designed to operate on text only (e.g., text editors, document preparation systems) and require no other input except directives or commands.
+</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/MI2 −−>
+
+<NamedIndividual rdf:about="&ontologies;MI2">
+<rdf:type rdf:resource="&ontologies;MI"/>
+<rdfs:comment>VHLL (MI2) − The input to the tool is a program written in a very high level language that is typically not executed. Three recognized types of VHLL&apos;s are requirements languages, design languages, and description languages.
+Requirements and design languages are both used to define programs and to provide a means for generating automatic documentation.
+Description languages are used todescribe attributes of the input in high−level, non−procedural form.
+</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/MI3 −−>
+
+<NamedIndividual rdf:about="&ontologies;MI3">
+<rdf:type rdf:resource="&ontologies;MI"/>
+<rdfs:comment>Code (MI3) − The input to the tool is a program written in a language that is subject to a given translation process before it is executed. Code is the language form in which most programming solutions are expressed and includes high level languages, assembly languages, object representations or parametric representations.
+High level languages are problem−oriented, while assembly languages are machine oriented but symbolic in nature. Object code represents an input that is typically executable without further translation, while parametric representation inputs variables to be translated.
+</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/MI4 −−>
+
+<NamedIndividual rdf:about="&ontologies;MI4">
+<rdf:type rdf:resource="&ontologies;MI"/>
+<rdfs:comment>Data (MI4)− The input to the tool is a string of characters to which meaning is or might be assigned. The input is not in an easily interpreted, natural language form. A simulator that accepts numeric data to initialize its program variables is an example of a tool that has data as input.
+</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/MO1 −−>
+
+<NamedIndividual rdf:about="&ontologies;MO1">
+<rdf:type rdf:resource="&ontologies;MO"/>
+ 
+<rdfs:comment>Data (MO1) − the input to the machine is representations of characters or numeric quantities to which meaning has been assigned. A tool generating input to a plotter is an example.</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/MO2 −−>
+
+<NamedIndividual rdf:about="&ontologies;MO2">
+<rdf:type rdf:resource="&ontologies;MO"/>
+<ontologies:feature rdf:datatype="&xsd;normalizedString">The input to the machine is between source code and machine code.</ontologies:feature>
+<rdfs:comment>Intermediate Code (MO2) − the input to the machine is between source code and machine code. A tool producing P−code for direct machine interpretation is an example.</rdfs:comment>
+<ontologies:isPartOf rdf:resource="&ontologies;MO5"/>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/MO3 −−>
+
+<NamedIndividual rdf:about="&ontologies;MO3">
+<rdf:type rdf:resource="&ontologies;MO"/>
+<ontologies:feature rdf:datatype="&rdfs;Literal"></ontologies:feature>
+<rdfs:comment>Object Code (MO3) − the input to the machine is a program expressed in machine language which is normally an output of a given translation process. A tool producing relocatable load modules for subsequent execution is an example.</rdfs:comment>
+<ontologies:isGeneratedBy rdf:resource="&ontologies;T6"/>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/MO4 −−>
+
+<NamedIndividual rdf:about="&ontologies;MO4">
+<rdf:type rdf:resource="&ontologies;MO"/>
+<rdfs:comment>Prompts (MO4) − the input to the machine is a series of procedural operators that are used to interactively inform the system in which the tool operates that it is ready for the next input.</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/MO5 −−>
+
+<NamedIndividual rdf:about="&ontologies;MO5">
+<rdf:type rdf:resource="&ontologies;MO"/>
+<rdfs:comment>Source Code (MO5) − the input to the machine is the program written in a procedural language that must be input to a translation process before execution can take place.</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/MO6 −−>
+
+<NamedIndividual rdf:about="&ontologies;MO6">
+<rdf:type rdf:resource="&ontologies;MO"/>
+<rdfs:comment>Text (MO6) − the input to the machine is presented in a written form that can be read without machine interpretation. A tool producing English text which is fed to the machine is an example.</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/P −−>
+
+<NamedIndividual rdf:about="&ontologies;P">
+<rdf:type rdf:resource="&ontologies;CI"/>
+<rdfs:comment>Parameters (P) − The control input is a series of parameters that are associated with the functions performed by the tool. Parameters are usually entered as a result of a prompt from a tool or may be
+ 
+embedded in the tool input. An interactive trace routine that prompts for breakpoints is an example of a tool with parametric input.</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/SA1 −−>
+
+<NamedIndividual rdf:about="&ontologies;SA1">
+<rdf:type rdf:resource="&ontologies;SA"/>
+<rdfs:comment>Auditing (SA1) − conducting an examination to determine whether or not predefined rules have been followed. A tool that examines the source code to determine whether or not coding standards are complied with is an example of a tool with this feature.</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/SA11 −−>
+
+<NamedIndividual rdf:about="&ontologies;SA11">
+<rdf:type rdf:resource="&ontologies;SA"/>
+<ontologies:feature>Aiding the management or control of software development. Tools that control access, updates, and retrievals of software; tools that maintain and control data definition and use; and tools that manage test data sets are examples of tools with this feature.</ontologies:feature>
+<rdfs:comment>Management (SA11) − aiding the management or control of software development. Tools that control access, updates, and retrievals of software; tools that maintain and control data definition and use; and tools that manage test data sets are examples of tools with this feature.</rdfs:comment>
+<ontologies:functions rdf:resource="&ontologies;SA11"/>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/SA12 −−>
+
+<NamedIndividual rdf:about="&ontologies;SA12">
+<rdf:type rdf:resource="&ontologies;SA"/>
+<rdfs:comment>Resource Estimation (SA12)− estimating the resources attributed to an entity. Tools that estimate whether or not memory limits, input/output capacity, or throughput constraints are being exceeded have this feature.</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/SA13 −−>
+
+<NamedIndividual rdf:about="&ontologies;SA13">
+<rdf:type rdf:resource="&ontologies;SA"/>
+<rdfs:comment>Scanning(SA13)− examining an entity sequentially to identify key areas or structure. A tool that examines source code and extracts key information for generating documentation is an example of a tool with this feature.</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/SA14 −−>
+
+<NamedIndividual rdf:about="&ontologies;SA14">
+<rdf:type rdf:resource="&ontologies;SA"/>
+<rdfs:comment>Scheduling (SA14)− assessing the schedule attributed to an entity. A tool that examines the project schedule to determine its critical path (shortest time to complete) has this feature.</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/SA15 −−>
+
+<NamedIndividual rdf:about="&ontologies;SA15">
+<rdf:type rdf:resource="&ontologies;SA"/>
+ 
+<rdfs:comment>Statistical Analysis (SA15)− performing statistical data collection and analysis. A tool that uses statistical test models to identify where programmers should concentrate their testing is one example. A tool that tallies occurrences of statement types is another example of a tool with this feature.</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/SA16 −−>
+
+<NamedIndividual rdf:about="&ontologies;SA16">
+<rdf:type rdf:resource="&ontologies;SA"/>
+<rdfs:comment>Structure Checking (SA16) − detecting structural flaws within a program (e.g. improper loop nestings, unreferenced labels, unreachable statements, and statements with no successors).</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/SA17 −−>
+
+<NamedIndividual rdf:about="&ontologies;SA17">
+<rdf:type rdf:resource="&ontologies;SA"/>
+<rdfs:comment>Tracking (SA17)− tracking the development of an entity through the software life cycle. Tools used to trace requirements from their specification to their implementation in code have this feature.</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/SA18 −−>
+
+<NamedIndividual rdf:about="&ontologies;SA18">
+<rdf:type rdf:resource="&ontologies;SA"/>
+<rdfs:comment>Type Analysis (SA18) − evaluating whether or not the domain of values attributed to an entity are properly and consistently defined. A tool that type checks variables has this feature.</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/SA19 −−>
+
+<NamedIndividual rdf:about="&ontologies;SA19">
+<rdf:type rdf:resource="&ontologies;SA"/>
+<rdfs:comment>Units Analysis (SA19) − determining whether or not the units or physical dimensions attributed to an entity are properly defined and consistently used.
+A tool that can check a program to ensure variables used in computations have proper units (e.g. hertz = cycl es/ seconds) is an example of a tool with this feature.
+</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/SA2 −−>
+
+<NamedIndividual rdf:about="&ontologies;SA2">
+<rdf:type rdf:resource="&ontologies;SA"/>
+<rdfs:comment>Comparison (SA2)− Assessing similarities between two or more items. A tool that compares programs or test runs for maintaining version control has this feature.</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/SA3 −−>
+
+<NamedIndividual rdf:about="&ontologies;SA3">
+<rdf:type rdf:resource="&ontologies;SA"/>
+<rdfs:comment>Complexity Measurement (SA3) − Determining how complicated an entity is by evaluating some number of associated characteristics. Jor example, the following characteristics can impact complexity: instruction mix, data references, structure/ control flow, number of interactions/interconnections, size, and number of computations.
+ 
+</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/SA4 −−>
+
+<NamedIndividual rdf:about="&ontologies;SA4">
+<rdf:type rdf:resource="&ontologies;SA"/>
+<rdfs:comment>Completeness Checking (SA4) − assessing whether or not an entity has all its parts present and if those parts are fully developed. A tool that examines the source code for missing parameter values has this feature.</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/SA5 −−>
+
+<NamedIndividual rdf:about="&ontologies;SA5">
+<rdf:type rdf:resource="&ontologies;SA"/>
+<rdfs:comment>Consistency Checking (SA5) − determining whether or not an entity is internally consistent in the sense that it contains uniform notation and terminology, or is consistent with its specification. Tools that check for consistent usage of variable names or tools that check for consistency between design specifications and code are examples of tools with this feature.
+</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/SA6 −−>
+
+<NamedIndividual rdf:about="&ontologies;SA6">
+<rdf:type rdf:resource="&ontologies;SA"/>
+<rdfs:comment>Cost Estimation (SA6)− assessing the behavior of the variables which impact life cycle cost. A tool to estimate project cost and investigate its sensitivity to parameter changes has this feature.</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/SA7 −−>
+
+<NamedIndividual rdf:about="&ontologies;SA7">
+<rdf:type rdf:resource="&ontologies;SA"/>
+<rdfs:comment>Cross Reference (SA7) − referencing entities to other entities by logical means. Tools that generate call graphs or tools that identify all variable references in a subprogram have this feature.</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/SA8 −−>
+
+<NamedIndividual rdf:about="&ontologies;SA8">
+<rdf:type rdf:resource="&ontologies;SA"/>
+<rdfs:comment>Data Jlow Analysis (SA8) − graphical analysis of the sequential patterns of definitions and references of data. Tools that identify undefined variables on certain paths in a program have this feature.</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/SA9 −−>
+
+<NamedIndividual rdf:about="&ontologies;SA9">
+<rdf:type rdf:resource="&ontologies;SA"/>
+<rdfs:comment>Error Checking (SA9) − determining discrepancies,their importance, and/or their cause. Tools used to identify possible program errors, such as misspelled variable names, arrays out of bounds,
+and modifications of a loop index are examples of tools with this feature.
+ 
+</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/T1 −−>
+
+<NamedIndividual rdf:about="&ontologies;T1">
+<rdf:type rdf:resource="&ontologies;T"/>
+<rdfs:comment>Editing (T1) − modifying the context of the input by inserting, deleting, or moving characters,numbers, or data.</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/T2 −−>
+
+<NamedIndividual rdf:about="&ontologies;T2">
+<rdf:type rdf:resource="&ontologies;T"/>
+<rdfs:comment>Jormatting (T2) − arranging a program according to predefined or user defined conventions. A tool that &quot;cleans up&quot; a program by making all statement numbers sequential, alphabetizing variable declarations, indenting statements, and making other standardizing changes has this feature.
+</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/T3 −−>
+
+<NamedIndividual rdf:about="&ontologies;T3">
+<rdf:type rdf:resource="&ontologies;T"/>
+<rdfs:comment>Instrumentation (T3) − adding sensors and counters to a program for the purpose of collecting information useful for dynamic analysis.
+Most code analyzers instrument the source code at strategic points in the program in order to collect execution statistics required for coverage analysis and tuning.
+</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/T4 −−>
+
+<NamedIndividual rdf:about="&ontologies;T4">
+<rdf:type rdf:resource="&ontologies;T"/>
+<rdfs:comment>Optimization (T4) − modifying a program to improve performance, e.g. to make it run faster or to make it use fewer resources. Optimizing compilers have this feature.</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/T5 −−>
+
+<NamedIndividual rdf:about="&ontologies;T5">
+<rdf:type rdf:resource="&ontologies;T"/>
+<rdfs:comment>Restructuring (T5) − reconstructing and arranging the subject in a new form according to well−defined rules. A tool that converts unstructured code into structured code is an example of a tool with this feature.
+</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/T6 −−>
+
+<NamedIndividual rdf:about="&ontologies;T6">
+<rdf:type rdf:resource="&ontologies;T"/>
+<rdfs:comment>Translation (T6) − to convert from one language form to another. Tools that have this feature include compilers, structured language preprocessors, and conversion tools.</rdfs:comment>
+</NamedIndividual>
+ 
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/UO1 −−>
+
+<NamedIndividual rdf:about="&ontologies;UO1">
+<rdf:type rdf:resource="&ontologies;UO"/>
+<rdfs:comment>Computational Results (UO1) − an output from the tool is simply the result of a computation.
+The output is not in an easily interpreted natural language f o rm (e.g. text).</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/UO2 −−>
+
+<NamedIndividual rdf:about="&ontologies;UO2">
+<rdf:type rdf:resource="&ontologies;UO"/>
+<rdfs:comment>Diagnostics (UO2) − an output from the tool simply indicates that a software discrepancy has occurred. An error flag from a compiler is an example.</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/UO3 −−>
+
+<NamedIndividual rdf:about="&ontologies;UO3">
+<rdf:type rdf:resource="&ontologies;UO"/>
+<rdfs:comment>Graphics (UO3) − an output from the tool is graphically presented with symbols indicating operations, flow, etc. A tool providing a flowchart of a program is an example.</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/UO4 −−>
+
+<NamedIndividual rdf:about="&ontologies;UO4">
+<rdf:type rdf:resource="&ontologies;UO"/>
+<ontologies:feature rdf:datatype="&rdfs;Literal">An output from the tool is a listing of a source program or data and may be annotated.
+Many different forms of listings can be generated. Some may be user controlled through directives.</ontologies:feature>
+<rdfs:comment>Listings (UO4) − an output from the tool is a listing of a source program or data and may be annotated. Many different forms of listings can be generated. Some may be user controlled through directives.</rdfs:comment>
+<ontologies:isPartOf rdf:resource="&ontologies;UO1"/>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/UO5 −−>
+
+<NamedIndividual rdf:about="&ontologies;UO5">
+<rdf:type rdf:resource="&ontologies;UO"/>
+<rdfs:comment>Text (UO5) − an output from the tool is in a natural language form. The output may be a choice of many different types of reports and the formats may be user defined.</rdfs:comment>
+</NamedIndividual>
+
+<!−− http://www.semanticweb.org/neji/ontologies/2021/2/UO6 −−>
+
+<NamedIndividual rdf:about="&ontologies;UO6">
+<rdf:type rdf:resource="&ontologies;UO"/>
+<rdfs:comment>Tables (UO6) − an output from the tool is arranged in parallel columns to exhibit a set of facts or relations in a definite, compact and comprehensive form. A tool that produces a decision table identifying a program&apos;s logic (conditions, actions, and rules that are the basis of decisions) is an example.</rdfs:comment>
+</NamedIndividual>
+</rdf:RDJ>
+ 
+
+Appendix
+IFOUSDT OWL/XML rendering
+
+
+
+
+
+<?xml version="1.0"?>
+
+<!DOCTYPE Ontology [
+<!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+<!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+<!ENTITY rdfs "http://www.w3.org/2000/01/rdf−schema#" >
+<!ENTITY rdf "http://www.w3.org/1999/02/22−rdf−syntax−ns#" >
+]>
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#" xml:base="http://www.semanticweb.org/neji/ontologies/2021/" xmlns:rdfs="http://www.w3.org/2000/01/rdf−schema#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:rdf="http://www.w3.org/1999/02/22−rdf−syntax−ns#" xmlns:xml="http://www.w3.org/XML/1998/namespace" ontologyIRI="http://www.semanticweb.org/neji/ontologies/2021/">
+<Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
+<Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+<Prefix name="rdf" IRI="http://www.w3.org/1999/02/22−rdf−syntax−ns#"/>
+<Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+<Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf−schema#"/>
+<Declaration>
+<Class IRI="CA"/>
+</Declaration>
+<Declaration>
+<Class IRI="DTI"/>
+</Declaration>
+<Declaration>
+<Class IRI="DUR"/>
+</Declaration>
+<Declaration>
+<Class IRI="DoW"/>
+</Declaration>
+<Declaration>
+<Class IRI="MoY"/>
+</Declaration>
+<Declaration>
+<Class IRI="PI"/>
+</Declaration>
+<Declaration>
+<Class IRI="PP"/>
+</Declaration>
+<Declaration>
+ 
+<Class IRI="TD"/>
+</Declaration>
+<Declaration>
+<Class IRI="TE"/>
+</Declaration>
+<Declaration>
+<Class IRI="TEn"/>
+</Declaration>
+<Declaration>
+<Class IRI="TI"/>
+</Declaration>
+<Declaration>
+<Class IRI="TP"/>
+</Declaration>
+<Declaration>
+<Class IRI="TPo"/>
+</Declaration>
+<Declaration>
+<Class IRI="TRS"/>
+</Declaration>
+<Declaration>
+<Class IRI="TU"/>
+</Declaration>
+<Declaration>
+<Class IRI="TZ"/>
+</Declaration>
+<Declaration>
+<Class IRI="TiIn"/>
+</Declaration>
+<Declaration>
+<Class IRI="Timing"/>
+</Declaration>
+<Declaration>
+<Class IRI="Tracing"/>
+</Declaration>
+<Declaration>
+<Class IRI="YE"/>
+</Declaration>
+<Declaration>
+<Class IRI="2/CI"/>
+</Declaration>
+<Declaration>
+<Class IRI="2/DA"/>
+</Declaration>
+<Declaration>
+<Class IRI="2/I"/>
+</Declaration>
+<Declaration>
+<Class IRI="2/MI"/>
+</Declaration>
+<Declaration>
+<Class IRI="2/MO"/>
+</Declaration>
+<Declaration>
+<Class IRI="2/O"/>
+</Declaration>
+<Declaration>
+ 
+<Class IRI="2/OP"/>
+</Declaration>
+<Declaration>
+<Class IRI="2/SA"/>
+</Declaration>
+<Declaration>
+<Class IRI="2/SDT"/>
+</Declaration>
+<Declaration>
+<Class IRI="2/T"/>
+</Declaration>
+<Declaration>
+<Class IRI="2/UO"/>
+</Declaration>
+<Declaration>
+<ObjectProperty IRI="after"/>
+</Declaration>
+<Declaration>
+<ObjectProperty IRI="before"/>
+</Declaration>
+<Declaration>
+<ObjectProperty IRI="day"/>
+</Declaration>
+<Declaration>
+<ObjectProperty IRI="hasBeginning"/>
+</Declaration>
+<Declaration>
+<ObjectProperty IRI="hasDuration"/>
+</Declaration>
+<Declaration>
+<ObjectProperty IRI="hasEnd"/>
+</Declaration>
+<Declaration>
+<ObjectProperty IRI="hasName"/>
+</Declaration>
+<Declaration>
+<ObjectProperty IRI="hasTRS"/>
+</Declaration>
+<Declaration>
+<ObjectProperty IRI="hasTemporalDuration"/>
+</Declaration>
+<Declaration>
+<ObjectProperty IRI="hasTime"/>
+</Declaration>
+<Declaration>
+<ObjectProperty IRI="hour"/>
+</Declaration>
+<Declaration>
+<ObjectProperty IRI="inside"/>
+</Declaration>
+<Declaration>
+<ObjectProperty IRI="minute"/>
+</Declaration>
+<Declaration>
+<ObjectProperty IRI="month"/>
+</Declaration>
+<Declaration>
+ 
+<ObjectProperty IRI="nominalPosition"/>
+</Declaration>
+<Declaration>
+<ObjectProperty IRI="numericDuration"/>
+</Declaration>
+<Declaration>
+<ObjectProperty IRI="numericPosition"/>
+</Declaration>
+<Declaration>
+<ObjectProperty IRI="second"/>
+</Declaration>
+<Declaration>
+<ObjectProperty IRI="unitType"/>
+</Declaration>
+<Declaration>
+<ObjectProperty IRI="version"/>
+</Declaration>
+<Declaration>
+<ObjectProperty IRI="week"/>
+</Declaration>
+<Declaration>
+<ObjectProperty IRI="year"/>
+</Declaration>
+<Declaration>
+<ObjectProperty IRI="2/functions"/>
+</Declaration>
+<Declaration>
+<ObjectProperty IRI="2/isGeneratedBy"/>
+</Declaration>
+<Declaration>
+<ObjectProperty IRI="2/isPartOf"/>
+</Declaration>
+<Declaration>
+<ObjectProperty IRI="2/isresultof"/>
+</Declaration>
+<Declaration>
+<DataProperty IRI="generalDay"/>
+</Declaration>
+<Declaration>
+<DataProperty IRI="generalMonth"/>
+</Declaration>
+<Declaration>
+<DataProperty IRI="generalYear"/>
+</Declaration>
+<Declaration>
+<DataProperty IRI="2/feature"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="April"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="August"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="DA1"/>
+</Declaration>
+<Declaration>
+ 
+<NamedIndividual IRI="December"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="Jebruary"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="Jriday"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="January"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="July"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="June"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="March"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="May"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="Monday"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="November"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="October"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="Saturday"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="September"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="Sunday"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="Thursday"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="Tuesday"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="Wednesday"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="unitDay"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="unitHour"/>
+</Declaration>
+<Declaration>
+ 
+<NamedIndividual IRI="unitMinute"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="unitMonth"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="unitSecond"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="unitWeek"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="unitYear"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/A10"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/C"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/DA2"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/DA3"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/DA4"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/DA5"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/DA6"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/DA9"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/MI1"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/MI2"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/MI3"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/MI4"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/MO1"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/MO2"/>
+</Declaration>
+<Declaration>
+ 
+<NamedIndividual IRI="2/MO3"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/MO4"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/MO5"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/MO6"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/P"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/SA1"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/SA11"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/SA12"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/SA13"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/SA14"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/SA15"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/SA16"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/SA17"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/SA18"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/SA19"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/SA2"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/SA3"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/SA4"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/SA5"/>
+</Declaration>
+<Declaration>
+ 
+<NamedIndividual IRI="2/SA6"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/SA7"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/SA8"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/SA9"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/T1"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/T2"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/T3"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/T4"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/T5"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/T6"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/UO1"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/UO2"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/UO3"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/UO4"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/UO5"/>
+</Declaration>
+<Declaration>
+<NamedIndividual IRI="2/UO6"/>
+</Declaration>
+<SubClassOf>
+<Class IRI="CA"/>
+<Class IRI="TE"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="DTI"/>
+<Class IRI="PI"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="DUR"/>
+ 
+<Class IRI="TD"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="DUR"/>
+<ObjectExactCardinality cardinality="1">
+<ObjectProperty IRI="numericDuration"/>
+<Class IRI="DUR"/>
+</ObjectExactCardinality>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="DUR"/>
+<ObjectExactCardinality cardinality="1">
+<ObjectProperty IRI="unitType"/>
+<Class IRI="DUR"/>
+</ObjectExactCardinality>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="DoW"/>
+<Class IRI="CA"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="MoY"/>
+<Class IRI="CA"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="MoY"/>
+<ObjectHasValue>
+<ObjectProperty IRI="unitType"/>
+<NamedIndividual IRI="unitMonth"/>
+</ObjectHasValue>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="MoY"/>
+<ObjectExactCardinality cardinality="1">
+<ObjectProperty IRI="month"/>
+<Class IRI="MoY"/>
+</ObjectExactCardinality>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="PI"/>
+<Class IRI="TiIn"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="PP"/>
+<Class IRI="Timing"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="TD"/>
+<Class IRI="TE"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="TE"/>
+<Class IRI="Timing"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="TEn"/>
+<Class IRI="TE"/>
+ 
+</SubClassOf>
+<SubClassOf>
+<Class IRI="TI"/>
+<Class IRI="TEn"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="TP"/>
+<Class IRI="TE"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="TP"/>
+<ObjectExactCardinality cardinality="1">
+<ObjectProperty IRI="hasTRS"/>
+<Class IRI="TP"/>
+</ObjectExactCardinality>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="TPo"/>
+<Class IRI="TP"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="TPo"/>
+<ObjectUnionOf>
+<ObjectExactCardinality cardinality="1">
+<ObjectProperty IRI="nominalPosition"/>
+<Class IRI="TPo"/>
+</ObjectExactCardinality>
+<ObjectExactCardinality cardinality="1">
+<ObjectProperty IRI="numericPosition"/>
+<Class IRI="TPo"/>
+</ObjectExactCardinality>
+</ObjectUnionOf>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="TPo"/>
+<ObjectExactCardinality cardinality="1">
+<ObjectProperty IRI="hasTRS"/>
+<Class IRI="TPo"/>
+</ObjectExactCardinality>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="TRS"/>
+<Class IRI="TE"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="TU"/>
+<Class IRI="TD"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="TZ"/>
+<Class IRI="TE"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="TiIn"/>
+<Class IRI="TEn"/>
+</SubClassOf>
+<SubClassOf>
+ 
+<Class IRI="Timing"/>
+<Class IRI="2/DA"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="Tracing"/>
+<Class IRI="2/DA"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="YE"/>
+<Class IRI="CA"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="2/CI"/>
+<Class IRI="2/I"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="2/DA"/>
+<Class IRI="2/OP"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="2/I"/>
+<Class IRI="2/SDT"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="2/MI"/>
+<Class IRI="2/I"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="2/MO"/>
+<Class IRI="2/O"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="2/O"/>
+<Class IRI="2/SDT"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="2/OP"/>
+<Class IRI="2/SDT"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="2/SA"/>
+<Class IRI="2/OP"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="2/T"/>
+<Class IRI="2/OP"/>
+</SubClassOf>
+<SubClassOf>
+<Class IRI="2/UO"/>
+<Class IRI="2/O"/>
+</SubClassOf>
+<DisjointClasses>
+<Class IRI="PI"/>
+<Class IRI="TI"/>
+</DisjointClasses>
+<DisjointClasses>
+<Class IRI="2/I"/>
+ 
+<Class IRI="2/OP"/>
+</DisjointClasses>
+<DisjointClasses>
+<Class IRI="2/O"/>
+<Class IRI="2/OP"/>
+</DisjointClasses>
+<DisjointUnion>
+<Class IRI="TEn"/>
+<Class IRI="TI"/>
+<Class IRI="TiIn"/>
+</DisjointUnion>
+<ClassAssertion>
+<Class IRI="MoY"/>
+<NamedIndividual IRI="April"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="MoY"/>
+<NamedIndividual IRI="August"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="PP"/>
+<NamedIndividual IRI="DA1"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="MoY"/>
+<NamedIndividual IRI="December"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="MoY"/>
+<NamedIndividual IRI="Jebruary"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="DoW"/>
+<NamedIndividual IRI="Jriday"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="MoY"/>
+<NamedIndividual IRI="January"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="MoY"/>
+<NamedIndividual IRI="July"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="MoY"/>
+<NamedIndividual IRI="June"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="MoY"/>
+<NamedIndividual IRI="March"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="MoY"/>
+<NamedIndividual IRI="May"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="DoW"/>
+ 
+<NamedIndividual IRI="Monday"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="MoY"/>
+<NamedIndividual IRI="November"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="MoY"/>
+<NamedIndividual IRI="October"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="DoW"/>
+<NamedIndividual IRI="Saturday"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="MoY"/>
+<NamedIndividual IRI="September"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="DoW"/>
+<NamedIndividual IRI="Sunday"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="DoW"/>
+<NamedIndividual IRI="Thursday"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="DoW"/>
+<NamedIndividual IRI="Tuesday"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="DoW"/>
+<NamedIndividual IRI="Wednesday"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="TU"/>
+<NamedIndividual IRI="unitDay"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="TU"/>
+<NamedIndividual IRI="unitHour"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="TU"/>
+<NamedIndividual IRI="unitMinute"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="TU"/>
+<NamedIndividual IRI="unitMonth"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="TU"/>
+<NamedIndividual IRI="unitSecond"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="TU"/>
+<NamedIndividual IRI="unitWeek"/>
+ 
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="TU"/>
+<NamedIndividual IRI="unitYear"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="2/SA"/>
+<NamedIndividual IRI="2/A10"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="2/CI"/>
+<NamedIndividual IRI="2/C"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="PP"/>
+<NamedIndividual IRI="2/DA2"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="PP"/>
+<NamedIndividual IRI="2/DA3"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="PP"/>
+<NamedIndividual IRI="2/DA4"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="PP"/>
+<NamedIndividual IRI="2/DA5"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="PP"/>
+<NamedIndividual IRI="2/DA6"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="PP"/>
+<NamedIndividual IRI="2/DA9"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="2/MI"/>
+<NamedIndividual IRI="2/MI1"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="2/MI"/>
+<NamedIndividual IRI="2/MI2"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="2/MI"/>
+<NamedIndividual IRI="2/MI3"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="2/MI"/>
+<NamedIndividual IRI="2/MI4"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="2/MO"/>
+<NamedIndividual IRI="2/MO1"/>
+</ClassAssertion>
+ 
+<ClassAssertion>
+<Class IRI="2/MO"/>
+<NamedIndividual IRI="2/MO2"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="2/MO"/>
+<NamedIndividual IRI="2/MO3"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="2/MO"/>
+<NamedIndividual IRI="2/MO4"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="2/MO"/>
+<NamedIndividual IRI="2/MO5"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="2/MO"/>
+<NamedIndividual IRI="2/MO6"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="2/CI"/>
+<NamedIndividual IRI="2/P"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="2/SA"/>
+<NamedIndividual IRI="2/SA1"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="2/SA"/>
+<NamedIndividual IRI="2/SA11"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="2/SA"/>
+<NamedIndividual IRI="2/SA12"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="2/SA"/>
+<NamedIndividual IRI="2/SA13"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="2/SA"/>
+<NamedIndividual IRI="2/SA14"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="2/SA"/>
+<NamedIndividual IRI="2/SA15"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="2/SA"/>
+<NamedIndividual IRI="2/SA16"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="2/SA"/>
+<NamedIndividual IRI="2/SA17"/>
+</ClassAssertion>
+<ClassAssertion>
+ 
+<Class IRI="2/SA"/>
+<NamedIndividual IRI="2/SA18"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="2/SA"/>
+<NamedIndividual IRI="2/SA19"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="2/SA"/>
+<NamedIndividual IRI="2/SA2"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="2/SA"/>
+<NamedIndividual IRI="2/SA3"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="2/SA"/>
+<NamedIndividual IRI="2/SA4"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="2/SA"/>
+<NamedIndividual IRI="2/SA5"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="2/SA"/>
+<NamedIndividual IRI="2/SA6"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="2/SA"/>
+<NamedIndividual IRI="2/SA7"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="2/SA"/>
+<NamedIndividual IRI="2/SA8"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="2/SA"/>
+<NamedIndividual IRI="2/SA9"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="2/T"/>
+<NamedIndividual IRI="2/T1"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="2/T"/>
+<NamedIndividual IRI="2/T2"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="2/T"/>
+<NamedIndividual IRI="2/T3"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="2/T"/>
+<NamedIndividual IRI="2/T4"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="2/T"/>
+ 
+<NamedIndividual IRI="2/T5"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="2/T"/>
+<NamedIndividual IRI="2/T6"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="2/UO"/>
+<NamedIndividual IRI="2/UO1"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="2/UO"/>
+<NamedIndividual IRI="2/UO2"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="2/UO"/>
+<NamedIndividual IRI="2/UO3"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="2/UO"/>
+<NamedIndividual IRI="2/UO4"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="2/UO"/>
+<NamedIndividual IRI="2/UO5"/>
+</ClassAssertion>
+<ClassAssertion>
+<Class IRI="2/UO"/>
+<NamedIndividual IRI="2/UO6"/>
+</ClassAssertion>
+<ObjectPropertyAssertion>
+<ObjectProperty IRI="2/isPartOf"/>
+<NamedIndividual IRI="2/MO2"/>
+<NamedIndividual IRI="2/MO5"/>
+</ObjectPropertyAssertion>
+<ObjectPropertyAssertion>
+<ObjectProperty IRI="2/isGeneratedBy"/>
+<NamedIndividual IRI="2/MO3"/>
+<NamedIndividual IRI="2/T6"/>
+</ObjectPropertyAssertion>
+<ObjectPropertyAssertion>
+<ObjectProperty IRI="2/functions"/>
+<NamedIndividual IRI="2/SA11"/>
+<NamedIndividual IRI="2/SA11"/>
+</ObjectPropertyAssertion>
+<ObjectPropertyAssertion>
+<ObjectProperty IRI="2/isPartOf"/>
+<NamedIndividual IRI="2/UO4"/>
+<NamedIndividual IRI="2/UO1"/>
+</ObjectPropertyAssertion>
+<DataPropertyAssertion>
+<DataProperty IRI="2/feature"/>
+<NamedIndividual IRI="2/MO2"/>
+<Literal datatypeIRI="&xsd;normalizedString">The input to the machine is between source code and machine code.</Literal>
+</DataPropertyAssertion>
+<DataPropertyAssertion>
+ 
+<DataProperty IRI="2/feature"/>
+<NamedIndividual IRI="2/MO3"/>
+<Literal datatypeIRI="&rdfs;Literal"></Literal>
+</DataPropertyAssertion>
+<DataPropertyAssertion>
+<DataProperty IRI="2/feature"/>
+<NamedIndividual IRI="2/SA11"/>
+<Literal datatypeIRI="&rdf;PlainLiteral">Aiding the management or control of software development. Tools that control access, updates, and retrievals of software; tools that maintain and control data definition and use; and tools that manage test data sets are examples of tools with this feature.</Literal>
+</DataPropertyAssertion>
+<DataPropertyAssertion>
+<DataProperty IRI="2/feature"/>
+<NamedIndividual IRI="2/UO4"/>
+<Literal datatypeIRI="&rdfs;Literal">An output from the tool is a listing of a source program or data and may be annotated.
+Many different forms of listings can be generated. Some may be user controlled through directives.</Literal>
+</DataPropertyAssertion>
+<SubObjectPropertyOf>
+<ObjectProperty IRI="before"/>
+<ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+</SubObjectPropertyOf>
+<SubObjectPropertyOf>
+<ObjectProperty IRI="day"/>
+<ObjectProperty IRI="week"/>
+</SubObjectPropertyOf>
+<SubObjectPropertyOf>
+<ObjectProperty IRI="hasDuration"/>
+<ObjectProperty IRI="hasTemporalDuration"/>
+</SubObjectPropertyOf>
+<SubObjectPropertyOf>
+<ObjectProperty IRI="hour"/>
+<ObjectProperty IRI="day"/>
+</SubObjectPropertyOf>
+<SubObjectPropertyOf>
+<ObjectProperty IRI="minute"/>
+<ObjectProperty IRI="hour"/>
+</SubObjectPropertyOf>
+<SubObjectPropertyOf>
+<ObjectProperty IRI="month"/>
+<ObjectProperty IRI="year"/>
+</SubObjectPropertyOf>
+<SubObjectPropertyOf>
+<ObjectProperty IRI="numericPosition"/>
+<ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+</SubObjectPropertyOf>
+<SubObjectPropertyOf>
+<ObjectProperty IRI="second"/>
+<ObjectProperty IRI="minute"/>
+</SubObjectPropertyOf>
+<SubObjectPropertyOf>
+<ObjectProperty IRI="unitType"/>
+<ObjectProperty IRI="numericDuration"/>
+</SubObjectPropertyOf>
+<SubObjectPropertyOf>
+<ObjectProperty IRI="week"/>
+<ObjectProperty IRI="month"/>
+ 
+</SubObjectPropertyOf>
+<SubObjectPropertyOf>
+<ObjectProperty IRI="2/isresultof"/>
+<ObjectProperty IRI="2/isGeneratedBy"/>
+</SubObjectPropertyOf>
+<InverseObjectProperties>
+<ObjectProperty IRI="after"/>
+<ObjectProperty IRI="before"/>
+</InverseObjectProperties>
+<JunctionalObjectProperty>
+<ObjectProperty IRI="hasName"/>
+</JunctionalObjectProperty>
+<JunctionalObjectProperty>
+<ObjectProperty IRI="hasTRS"/>
+</JunctionalObjectProperty>
+<JunctionalObjectProperty>
+<ObjectProperty IRI="hasTemporalDuration"/>
+</JunctionalObjectProperty>
+<JunctionalObjectProperty>
+<ObjectProperty IRI="hasTime"/>
+</JunctionalObjectProperty>
+<JunctionalObjectProperty>
+<ObjectProperty IRI="nominalPosition"/>
+</JunctionalObjectProperty>
+<JunctionalObjectProperty>
+<ObjectProperty IRI="numericDuration"/>
+</JunctionalObjectProperty>
+<JunctionalObjectProperty>
+<ObjectProperty IRI="numericPosition"/>
+</JunctionalObjectProperty>
+<InverseJunctionalObjectProperty>
+<ObjectProperty IRI="before"/>
+</InverseJunctionalObjectProperty>
+<AsymmetricObjectProperty>
+<ObjectProperty IRI="2/isGeneratedBy"/>
+</AsymmetricObjectProperty>
+<TransitiveObjectProperty>
+<ObjectProperty IRI="hasBeginning"/>
+</TransitiveObjectProperty>
+<TransitiveObjectProperty>
+<ObjectProperty IRI="hasEnd"/>
+</TransitiveObjectProperty>
+<TransitiveObjectProperty>
+<ObjectProperty IRI="2/isPartOf"/>
+</TransitiveObjectProperty>
+<IrreflexiveObjectProperty>
+<ObjectProperty IRI="after"/>
+</IrreflexiveObjectProperty>
+<ObjectPropertyDomain>
+<ObjectProperty IRI="after"/>
+<Class IRI="TEn"/>
+</ObjectPropertyDomain>
+<ObjectPropertyDomain>
+<ObjectProperty IRI="before"/>
+<Class IRI="TEn"/>
+</ObjectPropertyDomain>
+<ObjectPropertyDomain>
+ 
+<ObjectProperty IRI="hasBeginning"/>
+<Class IRI="TEn"/>
+</ObjectPropertyDomain>
+<ObjectPropertyDomain>
+<ObjectProperty IRI="hasEnd"/>
+<Class IRI="TEn"/>
+</ObjectPropertyDomain>
+<ObjectPropertyDomain>
+<ObjectProperty IRI="hasTRS"/>
+<Class IRI="TP"/>
+</ObjectPropertyDomain>
+<ObjectPropertyDomain>
+<ObjectProperty IRI="hasTemporalDuration"/>
+<Class IRI="TEn"/>
+</ObjectPropertyDomain>
+<ObjectPropertyDomain>
+<ObjectProperty IRI="inside"/>
+<Class IRI="PI"/>
+</ObjectPropertyDomain>
+<ObjectPropertyDomain>
+<ObjectProperty IRI="inside"/>
+<Class IRI="TiIn"/>
+</ObjectPropertyDomain>
+<ObjectPropertyDomain>
+<ObjectProperty IRI="nominalPosition"/>
+<Class IRI="TPo"/>
+</ObjectPropertyDomain>
+<ObjectPropertyDomain>
+<ObjectProperty IRI="numericDuration"/>
+<Class IRI="DUR"/>
+</ObjectPropertyDomain>
+<ObjectPropertyDomain>
+<ObjectProperty IRI="numericPosition"/>
+<Class IRI="TPo"/>
+</ObjectPropertyDomain>
+<ObjectPropertyDomain>
+<ObjectProperty IRI="2/functions"/>
+<Class IRI="2/OP"/>
+</ObjectPropertyDomain>
+<ObjectPropertyDomain>
+<ObjectProperty IRI="2/isGeneratedBy"/>
+<Class IRI="2/O"/>
+</ObjectPropertyDomain>
+<ObjectPropertyDomain>
+<ObjectProperty IRI="2/isPartOf"/>
+<Class IRI="2/I"/>
+</ObjectPropertyDomain>
+<ObjectPropertyRange>
+<ObjectProperty IRI="after"/>
+<Class IRI="TEn"/>
+</ObjectPropertyRange>
+<ObjectPropertyRange>
+<ObjectProperty IRI="before"/>
+<Class IRI="TEn"/>
+</ObjectPropertyRange>
+<ObjectPropertyRange>
+<ObjectProperty IRI="hasBeginning"/>
+ 
+<Class IRI="TI"/>
+</ObjectPropertyRange>
+<ObjectPropertyRange>
+<ObjectProperty IRI="hasDuration"/>
+<Class IRI="DUR"/>
+</ObjectPropertyRange>
+<ObjectPropertyRange>
+<ObjectProperty IRI="hasEnd"/>
+<Class IRI="TI"/>
+</ObjectPropertyRange>
+<ObjectPropertyRange>
+<ObjectProperty IRI="hasTRS"/>
+<Class IRI="TRS"/>
+</ObjectPropertyRange>
+<ObjectPropertyRange>
+<ObjectProperty IRI="hasTemporalDuration"/>
+<Class IRI="TD"/>
+</ObjectPropertyRange>
+<ObjectPropertyRange>
+<ObjectProperty IRI="hasTime"/>
+<Class IRI="TEn"/>
+</ObjectPropertyRange>
+<ObjectPropertyRange>
+<ObjectProperty IRI="inside"/>
+<Class IRI="TI"/>
+</ObjectPropertyRange>
+<ObjectPropertyRange>
+<ObjectProperty IRI="2/functions"/>
+<Class IRI="2/OP"/>
+</ObjectPropertyRange>
+<ObjectPropertyRange>
+<ObjectProperty IRI="2/isGeneratedBy"/>
+<Class IRI="2/OP"/>
+</ObjectPropertyRange>
+<ObjectPropertyRange>
+<ObjectProperty IRI="2/isPartOf"/>
+<Class IRI="2/O"/>
+</ObjectPropertyRange>
+<DisjointObjectProperties>
+<ObjectProperty IRI="after"/>
+<ObjectProperty IRI="before"/>
+</DisjointObjectProperties>
+<JunctionalDataProperty>
+<DataProperty IRI="generalDay"/>
+</JunctionalDataProperty>
+<JunctionalDataProperty>
+<DataProperty IRI="generalMonth"/>
+</JunctionalDataProperty>
+<JunctionalDataProperty>
+<DataProperty IRI="generalYear"/>
+</JunctionalDataProperty>
+<JunctionalDataProperty>
+<DataProperty IRI="2/feature"/>
+</JunctionalDataProperty>
+<DataPropertyDomain>
+<DataProperty IRI="generalDay"/>
+<Class IRI="Timing"/>
+ 
+</DataPropertyDomain>
+<DataPropertyDomain>
+<DataProperty IRI="generalMonth"/>
+<Class IRI="Timing"/>
+</DataPropertyDomain>
+<DataPropertyDomain>
+<DataProperty IRI="generalYear"/>
+<Class IRI="Timing"/>
+</DataPropertyDomain>
+<DataPropertyDomain>
+<DataProperty IRI="2/feature"/>
+<Class IRI="2/SDT"/>
+</DataPropertyDomain>
+<DataPropertyRange>
+<DataProperty IRI="generalDay"/>
+<Datatype abbreviatedIRI="rdfs:Literal"/>
+</DataPropertyRange>
+<DataPropertyRange>
+<DataProperty IRI="generalMonth"/>
+<Datatype abbreviatedIRI="rdfs:Literal"/>
+</DataPropertyRange>
+<DataPropertyRange>
+<DataProperty IRI="generalYear"/>
+<Datatype abbreviatedIRI="rdfs:Literal"/>
+</DataPropertyRange>
+<DataPropertyRange>
+<DataProperty IRI="2/feature"/>
+<Datatype abbreviatedIRI="rdfs:Literal"/>
+</DataPropertyRange>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>CA</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Calendar (CA)</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>DA1</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Assertion Checking (DA1) − checking of user−embedded statements that assert relationships between elements of a program. An assertion is a logical expression that specifies a condition or relation among the program variables. Checking may be performed with symbolic or run−time data. Tools that test the validity of assertions as the program is executing or tools that perform formal verification of assertions have this feature.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>DTI</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Date−time interval (DTI): enables compact representation of an interval corresponding to a single element in a date−time description (i.e. a specified year, month, week, day, hour, minute, second). </Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>DUR</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Duration (DUR) of a temporal extent expressed as a decimal number scaled by a temporal unit.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+ 
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>DoW</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Day of week (DoW): Seven individual members of DayOfWeek are included in the ontology, corresponding to the seven days used in the Gregorian calendar, and using the English names :Sunday, :Monday, :Tuesday, :Wednesday, :Thursday, :Jriday, :Saturday.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>MoY</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Month of year (MoY): Twelve individual members of :MonthOfYear are provided in a separate namespace, corresponding to the twelve months used in the Gregorian calendar January, Jebruary, March, April, May, June, July, August, September, October, November, and December.
+</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>PI</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Proper interval (PI): A temporal entity with non−zero extent or duration, i.e. for which the value of the beginning and end are different.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>PP</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">ProgramParts (PP)</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>TD</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Temporal duration (TD): Time extent; duration of a time interval separate from its particular start position.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>TE</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Temporal Evolution (TE)</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>TEn</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Temporal Entity (TEn):</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>TI</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Time instant (TI):A temporal entity with zero extent or duration.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>TP</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Temporal position (TP): A position on a time−line.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>TPo</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Time Position (TPo): A temporal position described using either a (nominal) value from an ordinal reference system, or a (numeric) value in a temporal coordinate system. </Literal>
+ 
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>TRS</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Temporal Reference System (TRS): A temporal reference system, such as a temporal coordinate reference system (with an origin, direction, and scale), a calendar−clock combination, or a (possibly hierarchical) ordinal system. </Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>TU</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Temporal unit (TU): A standard duration, which provides the scale factor for a time extent, or the granularity or precision for a time position. </Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>TZ</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Time−Zone (TZ): A Time Zone specifies the amount by which the local time is offset from UTC. A time zone is usually denoted geographically (e.g. Australian Eastern Daylight Time), with a constant value in a given region. The region where it applies and the offset from UTC are specified by a locally recognised governing authority. </Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>TiIn</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Time interval (TiIn): A temporal entity with an extent or duration.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>Timing</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Timing (DA7) − reporting actual Central Processing Unit (CPU) times associated with parts of a program.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>Tracing</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Tracing (DA8) − tracking the historical record of execution of a program. Tools that produce trace histories or allow the setting of breakpoints for tracking down errors have this feature.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>YE</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Year (YE)</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>after</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Gives directionality to time. If a temporal entity T1 is after another temporal entity T2, then the beginning of T1 is after the end of T2.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>before</IRI>
+ 
+<Literal datatypeIRI="&rdf;PlainLiteral">Gives directionality to time. If a temporal entity T1 is before another temporal entity T2, then the end of T1 is before the beginning of T2. Thus, before can be considered to be basic to instants and derived for intervals. </Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>day</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Day position in a calendar−clock system. The range of this property is not specified, so can be replaced by any specific representation of a calendar day from any calendar. </Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>generalDay</IRI>
+<Literal datatypeIRI="&xsd;string">Day of month − formulated as a text string with a pattern constraint. Values up to 99 are permitted, in order to support calendars with more than 31 days in a month. Note that the value−space is not defined, so a generic OWL2 processor cannot compute ordering relationships of values of this type. </Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>generalMonth</IRI>
+<Literal datatypeIRI="&xsd;string">Month of year − formulated as a text string with a pattern constraint. Values up to 20 are permitted, in order to support calendars with more than 12 months in the year. Note that the value−space is not defined, so a generic OWL2 processor cannot compute ordering relationships of values of this type. </Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>generalYear</IRI>
+<Literal datatypeIRI="&xsd;string">Year number − formulated as a text string with a pattern constraint. Values from the Gregorian calendar. Note that the value−space is not defined, so a generic OWL2 processor cannot compute ordering relationships of values of this type. </Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>hasBeginning</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Beginning of a temporal entity. </Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>hasDuration</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Duration of a temporal entity, expressed as a scaled value or nominal value</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>hasEnd</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">End of a temporal entity. </Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>hasTRS</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">The temporal reference system used by a temporal position or extent description. </Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+ 
+<IRI>hasTemporalDuration</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Duration of a temporal entity</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>hasTime</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Supports the association of a temporal entity (instant or interval) to any thing.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>hour</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Hour position in a calendar−clock system </Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>inside</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">An instant that falls inside the interval. It is not intended to include beginnings and ends of intervals. </Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>minute</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Minute position in a calendar−clock system </Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>month</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Month position in a calendar−clock system. The range of this property is not specified, so can be replaced by any specific representation of a calendar month from any calendar.
+</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>nominalPosition</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">The (nominal) value indicating temporal position in an ordinal reference system </Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>numericDuration</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Value of a temporal extent expressed as a number scaled by a temporal unit</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>numericPosition</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">The (numeric) value indicating position within a temporal coordinate system</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>second</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Second position in a calendar−clock system. </Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+ 
+<IRI>week</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Week number within the year. </Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>year</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Year position in a calendar−clock system. The range of this property is not specified, so can be replaced by any specific representation of a calendar year from any calendar. </Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/A10</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Interface Analysis (SA10) − checking the interfaces between program elements for consistency and adherence to predefined rules and/or axioms. A tool that examines interfaces between modules to determine if axiomatic rules for data exchange were obeyed has this feature.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/C</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Commands (C) − The control input to the tool consists primarily of procedural operators, each capable of invoking a system function to be executed. A directive invoking a series of diagnostic commands at selected breakpoints is an example. A tool that performs a single function will not have this feature but will most likely have the next.
+</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/CI</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Control Input (Key ; CI) . Control inputs specify the type of operation and the detail associated with an operation. They describe any separable commands that are entered as part of the input stream.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/DA</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Dynamic Analysis (Key ; DA) . Dynamic analysis features specify operations that are determined during or after execution takes place. Dynamic analysis features differ from those classified as static by virtue of the fact that they require some form of symbolic or machine execution. They describe the techniques used by the tool to derive meaningful information about a program&apos;s execution behavior. There are nine dynamic analysis features.
+</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/DA2</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Constraint Evaluation (DA2) − generating and/or solving path input constraints for determining test input. Tools that assist the generation of or automatically generate test data have this feature.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/DA3</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Coverage Analysis (DA3) − determining and assessing measures associated with the invocation of program structural elements to determine the adequacy of a test run. Coverage analysis is useful when attempting to execute each statement, branch, path, or iterative structure in a program. Tools that capture this data and provide reports summarizing relevant information have this feature.
+</Literal>
+ 
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/DA4</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Resource Utilization (DA4) − analysis of resource utilization associated with system hardware or software. A tool that provides detailed run−time statistics on core usage, disk usage, queue lengths, etc. is an example of a tool with this feature.
+</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/DA5</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Simulation (DA5) − representing certain features of the behavior of a physical or abstract system by means of operations performed by a computer. A tool that simulates the environment under which operational programs will run has this feature.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/DA6</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Symbolic Execution (DA6) − reconstructing logic and computations along a program path by executing the path with symbolic rather than actual values of data.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/DA9</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Tuning (DA9) − determining what parts of a program are being executed the most. A tool that instruments a program to obtain execution frequencies of statements is a tool with this feature.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/I</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Input (I) features are based on the forms of input which can be provided to a tool. These features fall into two classes, one which is based on how the tool should operate (control input (CI)) and the other based on what the tool should operate on (Main Input (MI)) . Using a compiler as an example,. The subject (Main Input) is the code that will be compiled and the control input is the set of commands which specify compiler options (optimize, debug, cross reference, etc.).</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/MI</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Main Input (MI) = is usually the required input to a tool. It is the input which is subjected to the main functions performed by a tool. The four types of subjects are data, code, VHLL (very high level language) , and text.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/MI</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Some tools, such as editors, operate on any if the four of these input forms (code, text, data, VHLL). In cases such as this, the input form is chosen from the viewpoint of the tool. Since editors view the input form as text, then text would be the correct choice for this tool.
+</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/MI1</IRI>
+ 
+<Literal datatypeIRI="&rdf;PlainLiteral">Text (MI1)− The input to the tool is presented in a natural language form. Certain types of tools are designed to operate on text only (e.g., text editors, document preparation systems) and require no other input except directives or commands.
+</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/MI2</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">VHLL (MI2) − The input to the tool is a program written in a very high level language that is typically not executed. Three recognized types of VHLL&apos;s are requirements languages, design languages, and description languages.
+Requirements and design languages are both used to define programs and to provide a means for generating automatic documentation.
+Description languages are used todescribe attributes of the input in high−level, non−procedural form.
+</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/MI3</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Code (MI3) − The input to the tool is a program written in a language that is subject to a given translation process before it is executed. Code is the language form in which most programming solutions are expressed and includes high level languages, assembly languages, object representations or parametric representations.
+High level languages are problem−oriented, while assembly languages are machine oriented but symbolic in nature. Object code represents an input that is typically executable without further translation, while parametric representation inputs variables to be translated.
+</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/MI4</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Data (MI4)− The input to the tool is a string of characters to which meaning is or might be assigned. The input is not in an easily interpreted, natural language form. A simulator that accepts numeric data to initialize its program variables is an example of a tool that has data as input.
+</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/MO</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Machine Output (Key; MO). Machine output features handle the interface from the tool to a target machine. They describe what the machine expects to see as output from the tool. There are six machine output features.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/MO1</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Data (MO1) − the input to the machine is representations of characters or numeric quantities to which meaning has been assigned. A tool generating input to a plotter is an example.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/MO2</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Intermediate Code (MO2) − the input to the machine is between source code and machine code. A tool producing P−code for direct machine interpretation is an example.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+ 
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/MO3</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Object Code (MO3) − the input to the machine is a program expressed in machine language which is normally an output of a given translation process. A tool producing relocatable load modules for subsequent execution is an example.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/MO4</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Prompts (MO4) − the input to the machine is a series of procedural operators that are used to interactively inform the system in which the tool operates that it is ready for the next input.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/MO5</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Source Code (MO5) − the input to the machine is the program written in a procedural language that must be input to a translation process before execution can take place.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/MO6</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Text (MO6) − the input to the machine is presented in a written form that can be read without machine interpretation. A tool producing English text which is fed to the machine is an example.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/O</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Output (O), features provide the link from the tool to the user. They describe what type of output the tool produces for both the human user and the target machine (where applicable) . Again using a compiler as an example, the user output would be diagnostics and possibly listings and tables (cross reference) , and the machine output would be object code or possibly intermediate code.
+</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/OP</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Operation (OP). The features for this class describe the processing functions performed by a tool and fall into three classes: transformation, static analysis, and dynamic analysis. Again using a compiler as an example, the transformation features would be translation and possibly optimization, the static analysis features would be error checking and possibly cross reference, and a dynamic analysis feature may be tracing.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/P</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Parameters (P) − The control input is a series of parameters that are associated with the functions performed by the tool. Parameters are usually entered as a result of a prompt from a tool or may be embedded in the tool input. An interactive trace routine that prompts for breakpoints is an example of a tool with parametric input.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/SA</IRI>
+ 
+<Literal datatypeIRI="&rdf;PlainLiteral">Static Analysis (Key : SA). Static analysis features specify operations on the subject without regard to the executability of the subject. They describe the manner in which the subject is analyzed. There are nineteen static analysis features.
+</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/SA1</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Auditing (SA1) − conducting an examination to determine whether or not predefined rules have been followed. A tool that examines the source code to determine whether or not coding standards are complied with is an example of a tool with this feature.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/SA11</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Management (SA11) − aiding the management or control of software development. Tools that control access, updates, and retrievals of software; tools that maintain and control data definition and use; and tools that manage test data sets are examples of tools with this feature.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/SA12</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Resource Estimation (SA12)− estimating the resources attributed to an entity. Tools that estimate whether or not memory limits, input/output capacity, or throughput constraints are being exceeded have this feature.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/SA13</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Scanning(SA13)− examining an entity sequentially to identify key areas or structure. A tool that examines source code and extracts key information for generating documentation is an example of a tool with this feature.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/SA14</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Scheduling (SA14)− assessing the schedule attributed to an entity. A tool that examines the project schedule to determine its critical path (shortest time to complete) has this feature.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/SA15</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Statistical Analysis (SA15)− performing statistical data collection and analysis. A tool that uses statistical test models to identify where programmers should concentrate their testing is one example. A tool that tallies occurrences of statement types is another example of a tool with this feature.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/SA16</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Structure Checking (SA16) − detecting structural flaws within a program (e.g. improper loop nestings, unreferenced labels, unreachable statements, and statements with no successors).</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+ 
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/SA17</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Tracking (SA17)− tracking the development of an entity through the software life cycle. Tools used to trace requirements from their specification to their implementation in code have this feature.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/SA18</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Type Analysis (SA18) − evaluating whether or not the domain of values attributed to an entity are properly and consistently defined. A tool that type checks variables has this feature.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/SA19</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Units Analysis (SA19) − determining whether or not the units or physical dimensions attributed to an entity are properly defined and consistently used.
+A tool that can check a program to ensure variables used in computations have proper units (e.g. hertz = cycl es/ seconds) is an example of a tool with this feature.
+</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/SA2</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Comparison (SA2)− Assessing similarities between two or more items. A tool that compares programs or test runs for maintaining version control has this feature.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/SA3</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Complexity Measurement (SA3) − Determining how complicated an entity is by evaluating some number of associated characteristics. Jor example, the following characteristics can impact complexity: instruction mix, data references, structure/ control flow, number of interactions/interconnections, size, and number of computations.
+</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/SA4</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Completeness Checking (SA4) − assessing whether or not an entity has all its parts present and if those parts are fully developed. A tool that examines the source code for missing parameter values has this feature.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/SA5</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Consistency Checking (SA5) − determining whether or not an entity is internally consistent in the sense that it contains uniform notation and terminology, or is consistent with its specification. Tools that check for consistent usage of variable names or tools that check for consistency between design specifications and code are examples of tools with this feature.
+</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/SA6</IRI>
+ 
+<Literal datatypeIRI="&rdf;PlainLiteral">Cost Estimation (SA6)− assessing the behavior of the variables which impact life cycle cost. A tool to estimate project cost and investigate its sensitivity to parameter changes has this feature.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/SA7</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Cross Reference (SA7) − referencing entities to other entities by logical means. Tools that generate call graphs or tools that identify all variable references in a subprogram have this feature.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/SA8</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Data Jlow Analysis (SA8) − graphical analysis of the sequential patterns of definitions and references of data. Tools that identify undefined variables on certain paths in a program have this feature.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/SA9</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Error Checking (SA9) − determining discrepancies,their importance, and/or their cause. Tools used to identify possible program errors, such as misspelled variable names, arrays out of bounds,
+and modifications of a loop index are examples of tools with this feature.
+</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/SDT</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">SDT: Software Development Tool meaning Software that assists in the creation of new software in a dynamic environment. </Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/T</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Transformation (Key ; T) . Transformation features describe how the subject is manipulated to accommodate the user&apos;s needs. They describe what transformations take place as the input to the tool is processed. There are six transformation features. </Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/T1</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Editing (T1) − modifying the context of the input by inserting, deleting, or moving characters,numbers, or data.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/T2</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Jormatting (T2) − arranging a program according to predefined or user defined conventions. A tool that &quot;cleans up&quot; a program by making all statement numbers sequential, alphabetizing variable declarations, indenting statements, and making other standardizing changes has this feature.
+</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+ 
+<IRI>2/T3</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Instrumentation (T3) − adding sensors and counters to a program for the purpose of collecting information useful for dynamic analysis.
+Most code analyzers instrument the source code at strategic points in the program in order to collect execution statistics required for coverage analysis and tuning.
+</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/T4</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Optimization (T4) − modifying a program to improve performance,
+e.g. to make it run faster or to make it use fewer resources. Optimizing compilers have this feature.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/T5</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Restructuring (T5) − reconstructing and arranging the subject in a new form according to well−defined rules. A tool that converts unstructured code into structured code is an example of a tool with this feature.
+</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/T6</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Translation (T6) − to convert from one language form to another. Tools that have this feature include compilers, structured language preprocessors, and conversion tools.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/UO</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">User Output (Key; UO) . User output features handle the interface from the tool to the human user. They describe the types of information that the tool provides for the user and the form in which this output is presented. There are six user output features.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/UO1</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Computational Results (UO1) − an output from the tool is simply the result of a computation. The output is not in an easily interpreted natural language f o rm (e.g. text).</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/UO2</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Diagnostics (UO2) − an output from the tool simply indicates that a software discrepancy has occurred. An error flag from a compiler is an example.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/UO3</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Graphics (UO3) − an output from the tool is graphically presented with symbols indicating operations, flow, etc. A tool providing a flowchart of a program is an example.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/UO4</IRI>
+ 
+<Literal datatypeIRI="&rdf;PlainLiteral">Listings (UO4) − an output from the tool is a listing of a source program or data and may be annotated. Many different forms of listings can be generated. Some may be user controlled through directives.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/UO5</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Text (UO5) − an output from the tool is in a natural language form. The output may be a choice of many different types of reports and the formats may be user defined.</Literal>
+</AnnotationAssertion>
+<AnnotationAssertion>
+<AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+<IRI>2/UO6</IRI>
+<Literal datatypeIRI="&rdf;PlainLiteral">Tables (UO6) − an output from the tool is arranged in parallel columns to exhibit a set of facts or relations in a definite, compact and comprehensive form. A tool that produces a decision table identifying a program&apos;s logic (conditions, actions, and rules that are the basis of decisions) is an example.</Literal>
+</AnnotationAssertion>
+</Ontology>
+
+<!−− Generated by the OWL API (version 3.4.2) −−>
